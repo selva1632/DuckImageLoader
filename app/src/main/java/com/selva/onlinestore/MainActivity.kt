@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.selva.onlinestore.presentation.MainViewModel
 import com.selva.onlinestore.screen.Screen
 import com.selva.onlinestore.ui.theme.OnlineStoreTheme
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             OnlineStoreTheme {
-                val state by viewModel.duckUrlState.collectAsState()
+                val state by viewModel.duckUrlState.collectAsStateWithLifecycle()
                 Screen(state = state, onEvent = viewModel::handleEvent)
             }
         }

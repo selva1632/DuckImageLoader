@@ -44,8 +44,7 @@ class MainViewModel @Inject constructor(
                         )
                     }
                     return@collect
-                }
-                result.data?.let { duckItem ->
+                } ?: result.data?.let { duckItem ->
                     Log.i(TAG, "url - ${duckItem.url}")
                     _duckUrlState.update {
                         it.copy(
